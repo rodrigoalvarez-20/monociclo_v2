@@ -1,0 +1,40 @@
+module superalu #(parameter N = 32)(
+	input [N-1:0] a_i,
+	input [N-1:0] b_i,
+	input c_i,
+	input [1:0] ope_i,
+	output [N-1:0] res_o,
+	output c_o
+);
+	// Registro para acarreos internos
+	wire [N:0] carryint_w;
+	assign carryint_w[0] = c_i;
+	
+	genvar i;
+	generate
+		for (i = 0; i < N; i = i + 1)
+			begin: estotienequeir
+				if (i == 0)
+					alu alu_N(
+						.a_i		(a_i[i]),
+						.b_i		(b_i[i]),
+						.c_i		(carryint_w[i]),
+						.ope_i	(ope_i),
+						.res_o	(res_o[i]),
+						.c_o		(carryint_w[i+1]),
+						.less_i	(res_o[N-1])
+					);
+				else
+					alu alu_N(
+						.a_i		(a_i[i]),
+						.b_i		(b_i[i]),
+						.c_i		(carryint_w[i]),
+						.ope_i	(ope_i),
+						.res_o	(res_o[i]),
+						.c_o		(carryint_w[i+1]),
+						.less_i	(1'b0)
+					);
+			end
+	endgenerate
+	assign c_o = carryint_w[N];
+endmodule

@@ -1,0 +1,24 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute/alu/fulladder {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute/alu/fulladder/fulladder.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute/alu {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute/alu/alu.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/execute/superalu.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/regfile {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/regfile/registerfile.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/monociclo.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/signextend {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/signextend/signextend.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/decode {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/decode/decode.v}
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/icache {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/icache/icache.v}
+
+vlog -vlog01compat -work work +incdir+C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo {C:/Users/ozaxe/Documents/ArquitecturaComputadoras/monociclo/monociclo.v}
+
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  monociclo_tb
+
+add wave *
+view structure
+view signals
+run -all

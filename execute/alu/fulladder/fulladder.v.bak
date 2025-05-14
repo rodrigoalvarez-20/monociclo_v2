@@ -1,0 +1,21 @@
+module fulladder(
+	input a_i,
+	input b_i,
+	input c_i,
+	output s_o,
+	output c_o
+);
+	wire and1_w;
+	wire and2_w;
+	wire and3_w;
+	wire xor1_w;
+	//algoritmo
+	assign and1_w = a_i & c_i;
+	assign and2_w = b_i & c_i;
+	assign and3_w = a_i & b_i;
+	
+	assign xor1_w = a_i ^ b_i;
+	assign s_o = xor1_w ^ c_i;
+	
+	assign c_o = and1_w | and2_w | and3_w;
+endmodule 

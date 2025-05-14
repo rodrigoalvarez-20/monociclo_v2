@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "monitor_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[18]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[20]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[21]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[22]",
+					"strict" : false
+				},
+				{
+					"name" : "monitor_o[30]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_i",
+					"strict" : false
+				},
+				{
+					"name" : "rst_ni",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

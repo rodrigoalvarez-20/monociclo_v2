@@ -1,0 +1,712 @@
+Analysis & Synthesis report for monociclo
+Wed May 14 01:09:59 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "regfile:register_read_stg"
+ 13. Port Connectivity Checks: "icache:icachel1"
+ 14. Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 14 01:09:59 2025       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; monociclo                                   ;
+; Top-level Entity Name              ; monociclo                                   ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 82                                          ;
+;     Total combinational functions  ; 73                                          ;
+;     Dedicated logic registers      ; 60                                          ;
+; Total registers                    ; 60                                          ;
+; Total pins                         ; 34                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; monociclo          ; monociclo          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
++----------------------------------+-----------------+---------------------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+---------------------------------------------+-------------------------------------------------------------------------------------+---------+
+; icache/icache.sv                 ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv        ;         ;
+; fetch/fetch.sv                   ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv          ;         ;
+; include/lagarto0_pkg.sv          ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/include/lagarto0_pkg.sv ;         ;
+; decode/decoder.sv                ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/decode/decoder.sv       ;         ;
+; memory/registerfile.sv           ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/memory/registerfile.sv  ;         ;
+; iqueue/iqueue.sv                 ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv        ;         ;
+; monociclo.sv                     ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv            ;         ;
+; icache/suma.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/suma.hex         ;         ;
+; icache/tag.hex                   ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex          ;         ;
++----------------------------------+-----------------+---------------------------------------------+-------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 82          ;
+;                                             ;             ;
+; Total combinational functions               ; 73          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 22          ;
+;     -- 3 input functions                    ; 7           ;
+;     -- <=2 input functions                  ; 44          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 36          ;
+;     -- arithmetic mode                      ; 37          ;
+;                                             ;             ;
+; Total registers                             ; 60          ;
+;     -- Dedicated logic registers            ; 60          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 34          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clk_i~input ;
+; Maximum fan-out                             ; 60          ;
+; Total fan-out                               ; 460         ;
+; Average fan-out                             ; 2.29        ;
++---------------------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-------------+--------------+
+; |monociclo                 ; 73 (0)              ; 60 (0)                    ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |monociclo                                 ; monociclo   ; work         ;
+;    |fetch:fetch_stg|       ; 60 (39)             ; 60 (39)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |monociclo|fetch:fetch_stg                 ; fetch       ; work         ;
+;       |iqueue:IQ_Fetch|    ; 21 (21)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |monociclo|fetch:fetch_stg|iqueue:IQ_Fetch ; iqueue      ; work         ;
+;    |icache:icachel1|       ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |monociclo|icache:icachel1                 ; icache      ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                           ;
++---------------------------------------------------------------------+--------------------------------------------------------+
+; Register name                                                       ; Reason for Removal                                     ;
++---------------------------------------------------------------------+--------------------------------------------------------+
+; icache:icachel1|valid[2..255]                                       ; Stuck at GND due to stuck port clock_enable            ;
+; icache:icachel1|valid[0,1]                                          ; Stuck at VCC due to stuck port clock_enable            ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|addr_wr[0]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][2]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][2]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][3]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][3]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][6]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][6]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][9]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][9]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][12]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][12]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][13]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][13]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][14]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][14]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][15]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][15]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][16]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][16]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][17]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][17]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][19]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][19]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][24]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][24]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][25]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][25]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][26]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][26]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][27]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][27]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][28]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][28]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][29]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][29]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][31]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][31]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][2]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][2]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][3]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][3]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][6]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][6]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][7]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][7]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][9]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][9]                           ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][12]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][12]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][13]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][13]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][14]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][14]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][15]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][15]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][16]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][16]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][17]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][17]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][19]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][19]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][22]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][22]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][24]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][24]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][25]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][25]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][26]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][26]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][27]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][27]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][28]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][28]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][29]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][29]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][30]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][30]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][31]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][31]                          ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[2,3,6,9,12..17,19,24..29,31] ; Stuck at GND due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][0]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][0]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][0]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][0]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][1]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][1]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][1]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][1]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][4]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][4]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][4]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][4]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][7]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][7]                           ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][20]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][20]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][23]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][23]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][23]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][23]                          ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[0,1,4,23]                    ; Stuck at VCC due to stuck port data_in                 ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][18]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][20]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][5]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][8]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][11]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][18]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][30]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][5]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][8]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][18]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][20]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][5]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][8]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][11]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][18]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][30]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][5]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][8]                           ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][11] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][21]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][10]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][21]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][22]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][21]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][10]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][21]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][10] ;
+; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][22]                          ; Merged with fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][10] ;
+; fetch:fetch_stg|pc_next_o[41..63]                                   ; Lost fanout                                            ;
+; Total Number of Removed Registers = 426                             ;                                                        ;
++---------------------------------------------------------------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                               ;
++----------------------------+--------------------------------+---------------------------------------------+
+; Register name              ; Reason for Removal             ; Registers Removed due to This Register      ;
++----------------------------+--------------------------------+---------------------------------------------+
+; icache:icachel1|valid[255] ; Stuck at GND                   ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][2],  ;
+;                            ; due to stuck port clock_enable ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][2],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][3],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][3],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][6],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][6],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][9],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][9],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][12], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][12], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][13], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][13], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][14], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][14], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][15], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][15], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][16], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][16], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][17], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][17], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][19], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][19], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][24], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][24], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][25], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][25], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][26], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][26], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][27], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][27], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][28], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][28], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][29], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][29], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][31], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][31], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][2],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][2],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][3],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][3],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][6],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][6],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][7],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][7],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][9],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][9],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][12], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][12], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][13], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][13], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][14], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][14], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][15], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][15], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][16], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][16], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][17], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][17], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][19], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][19], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][22], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][22], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][24], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][24], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][25], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][25], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][26], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][26], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][27], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][27], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][28], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][28], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][29], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][29], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][30], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][30], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][31], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][31], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[2],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[3],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[6],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[9],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[12], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[13], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[14], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[15], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[16], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[17], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[19], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[24], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[25], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[26], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[27], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[28], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[29], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[31], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][0],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][0],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][0],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][0],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][1],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][1],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][1],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][1],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][4],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][4],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][4],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][4],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][7],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][7],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][20], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][20], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[0][23], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[1][23], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[2][23], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|mem[3][23], ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[0],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[1],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[4],  ;
+;                            ;                                ; fetch:fetch_stg|iqueue:IQ_Fetch|data_o[23]  ;
++----------------------------+--------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 60    ;
+; Number of registers using Synchronous Clear  ; 9     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 39    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 53    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |monociclo|fetch:fetch_stg|iqueue:IQ_Fetch|data_o[7]  ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |monociclo|fetch:fetch_stg|iqueue:IQ_Fetch|data_o[10] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |monociclo|fetch:fetch_stg|iqueue:IQ_Fetch|addr_rd[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:register_read_stg"                                                               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; datord_i  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; dators1_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dators2_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "icache:icachel1"                                                                                                                                    ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                            ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; we_i   ; Input ; Info     ; Stuck at GND                                                                                                                                       ;
+; inst_i ; Input ; Warning  ; Input port expression (32 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "inst_i[63..32]" will be connected to GND. ;
+; inst_i ; Input ; Info     ; Stuck at GND                                                                                                                                       ;
+; re_i   ; Input ; Info     ; Stuck at VCC                                                                                                                                       ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"                                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; rd_i    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; empty_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 60                          ;
+;     CLR               ; 1                           ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 38                          ;
+;     ENA SCLR          ; 4                           ;
+;     SCLR              ; 5                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 75                          ;
+;     arith             ; 37                          ;
+;         2 data inputs ; 36                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 38                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 22                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.67                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed May 14 01:09:51 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off monociclo -c monociclo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file icache/icache.sv
+    Info (12023): Found entity 1: icache File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file fetch/fetch.sv
+    Info (12023): Found entity 1: fetch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file execute/alu/fulladder/fulladder.v
+    Info (12023): Found entity 1: fulladder File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/alu/fulladder/fulladder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file execute/alu/alu.v
+    Info (12023): Found entity 1: alu File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/alu/alu.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file execute/superalu.v
+    Info (12023): Found entity 1: superalu File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/superalu.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file signextend/signextend.v
+    Info (12023): Found entity 1: signextend File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/signextend/signextend.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file aluctrl/aluctrl.v
+    Info (12023): Found entity 1: aluctrl File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/aluctrl/aluctrl.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file execute/shift/shift.v
+    Info (12023): Found entity 1: shift File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/shift/shift.v Line: 1
+Info (12021): Found 1 design units, including 0 entities, in source file include/lagarto0_pkg.sv
+    Info (12022): Found design unit 1: lagarto0_pkg (SystemVerilog) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/include/lagarto0_pkg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decode/decoder.sv
+    Info (12023): Found entity 1: decoder File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/decode/decoder.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file memory/registerfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/memory/registerfile.sv Line: 3
+Info (12021): Found 2 design units, including 2 entities, in source file iqueue/iqueue.sv
+    Info (12023): Found entity 1: iqueue File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv Line: 3
+    Info (12023): Found entity 2: fifocircular_tb File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv Line: 58
+Info (12021): Found 1 design units, including 1 entities, in source file monociclo.sv
+    Info (12023): Found entity 1: monociclo File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 3
+Info (12127): Elaborating entity "monociclo" for the top level hierarchy
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 40
+Info (12128): Elaborating entity "iqueue" for hierarchy "fetch:fetch_stg|iqueue:IQ_Fetch" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv Line: 65
+Info (12128): Elaborating entity "icache" for hierarchy "icache:icachel1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 52
+Warning (10850): Verilog HDL warning at icache.sv(32): number of words (2) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 32
+Warning (10850): Verilog HDL warning at icache.sv(34): number of words (16) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 34
+Warning (10230): Verilog HDL assignment warning at tag.hex(1): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 1
+Warning (10230): Verilog HDL assignment warning at tag.hex(2): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 2
+Warning (10230): Verilog HDL assignment warning at tag.hex(3): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 3
+Warning (10230): Verilog HDL assignment warning at tag.hex(4): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 4
+Warning (10230): Verilog HDL assignment warning at tag.hex(5): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 5
+Warning (10230): Verilog HDL assignment warning at tag.hex(6): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 6
+Warning (10230): Verilog HDL assignment warning at tag.hex(7): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 7
+Warning (10230): Verilog HDL assignment warning at tag.hex(8): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 8
+Warning (10230): Verilog HDL assignment warning at tag.hex(9): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 9
+Warning (10230): Verilog HDL assignment warning at tag.hex(10): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 10
+Warning (10230): Verilog HDL assignment warning at tag.hex(11): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 11
+Warning (10230): Verilog HDL assignment warning at tag.hex(12): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 12
+Warning (10230): Verilog HDL assignment warning at tag.hex(13): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 13
+Warning (10230): Verilog HDL assignment warning at tag.hex(14): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 14
+Warning (10230): Verilog HDL assignment warning at tag.hex(15): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 15
+Warning (10230): Verilog HDL assignment warning at tag.hex(16): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 16
+Warning (10230): Verilog HDL assignment warning at icache.sv(50): truncated value with size 9 to match size of target (8) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 50
+Critical Warning (10237): Verilog HDL warning at icache.sv(68): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 68
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 59
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:register_read_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 71
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "icache:icachel1|tag" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 22
+    Info (276007): RAM logic "icache:icachel1|memoria" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 20
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/db/monociclo.ram1_icache_ff572994.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/db/monociclo.ram0_icache_ff572994.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "monitor_o[0]" is stuck at VCC File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[1]" is stuck at VCC File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[2]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[3]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[4]" is stuck at VCC File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[6]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[9]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[12]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[13]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[14]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[15]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[16]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[17]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[19]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[23]" is stuck at VCC File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[24]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[25]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[26]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[27]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[28]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[29]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+    Warning (13410): Pin "monitor_o[31]" is stuck at GND File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 23 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/output_files/monociclo.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 120 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 86 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 4769 megabytes
+    Info: Processing ended: Wed May 14 01:09:59 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/output_files/monociclo.map.smsg.
+
+

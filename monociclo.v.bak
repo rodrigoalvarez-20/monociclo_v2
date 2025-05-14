@@ -1,0 +1,22 @@
+module monociclo (
+	input		clk_i, 
+	input		rst_ni,
+	output	[31:0]monitor_o
+);
+
+	// Seccion de declaracion de señales
+	wire		[31:0]pc_w;
+	wire		[31:0]pcnext_w;
+	
+	// FETCH
+	
+	always @(posedge clk_i, negedge rst_ni)
+	begin
+		if (!rst_ni)
+			pc_w <= 32'b0;
+		else
+			pc_w <= pcnext_w;
+	end
+
+
+endmodule

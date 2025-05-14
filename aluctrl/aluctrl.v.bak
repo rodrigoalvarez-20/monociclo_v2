@@ -1,0 +1,11 @@
+module aluctrl(
+	input [7:0]aluop_i,
+	input func7_i,
+	input [3:0]func3_i,
+	output [3:0]aluoperacion_o
+);
+
+	/// Implementacion
+
+
+endmodule

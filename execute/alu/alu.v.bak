@@ -1,0 +1,52 @@
+module alu(
+	input a_i,
+	input b_i,
+	input c_i,
+	input less_i,
+	input [1:0] ope_i,
+	output reg res_o,
+	output c_o
+);
+
+	wire aandb_w;
+	wire aorb_w;
+	wire fa1_w;
+	wire nob_w;
+	//inversión de b
+	assign nob_w = ~b_i;
+	//selector de b ~ nob
+	assign b_w = (c_i) ? nob_w : b_i;
+	
+	//estructural
+	and and1 (aandb_w, a_i, b_w);
+	or or1 (aorb_w, a_i, b_w);
+	
+	//sumador completo
+	fulladder fa1(
+		.a_i	(a_i),
+		.b_i	(b_w),
+		.c_i	(c_i),
+		.s_o	(fa1_w),
+		.c_o	(c_o)
+	);
+	
+	//algoritmo
+	//assign res_o = ()? aorb_w : aandb_w;
+	
+	always @(*)
+	begin
+		case (ope_i)
+			2'b00:
+				res_o = aandb_w;
+			2'b01:
+				res_o = aorb_w;
+			2'b10:
+				res_o = fa1_w;
+			2'b11:
+				res_o = less_i;
+			default:
+				res_o = 1'b0;
+		endcase
+	end
+endmodule
+	
