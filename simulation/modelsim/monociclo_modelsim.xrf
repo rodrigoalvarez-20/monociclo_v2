@@ -12,6 +12,7 @@ source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/dec
 source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/memory/registerfile.sv
 source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv
 source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv
+source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/control/control.sv
 source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/suma.hex
 source_file = 1, C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex
 source_file = 1, suma.hex

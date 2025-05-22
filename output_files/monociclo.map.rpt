@@ -1,5 +1,5 @@
 Analysis & Synthesis report for monociclo
-Wed May 14 01:09:59 2025
+Thu May 22 10:00:04 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -18,12 +18,13 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Port Connectivity Checks: "regfile:register_read_stg"
- 13. Port Connectivity Checks: "icache:icachel1"
- 14. Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+ 13. Port Connectivity Checks: "control:control_stage"
+ 14. Port Connectivity Checks: "icache:icachel1"
+ 15. Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -50,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 14 01:09:59 2025       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 22 10:00:04 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; monociclo                                   ;
 ; Top-level Entity Name              ; monociclo                                   ;
@@ -178,10 +179,10 @@ https://fpgasoftware.intel.com/eula.
 ; icache/icache.sv                 ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv        ;         ;
 ; fetch/fetch.sv                   ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv          ;         ;
 ; include/lagarto0_pkg.sv          ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/include/lagarto0_pkg.sv ;         ;
-; decode/decoder.sv                ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/decode/decoder.sv       ;         ;
 ; memory/registerfile.sv           ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/memory/registerfile.sv  ;         ;
 ; iqueue/iqueue.sv                 ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv        ;         ;
 ; monociclo.sv                     ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv            ;         ;
+; control/control.sv               ; yes             ; User SystemVerilog HDL File                 ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/control/control.sv      ;         ;
 ; icache/suma.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/suma.hex         ;         ;
 ; icache/tag.hex                   ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex          ;         ;
 +----------------------------------+-----------------+---------------------------------------------+-------------------------------------------------------------------------------------+---------+
@@ -536,6 +537,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:control_stage"                                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Inst_Branch_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; MEM_read_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; MEM_reg_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ALU_Op_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; MEM_Write_o   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ALU_Src_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Reg_Write_o   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; J_Type_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; PC_dec_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "icache:icachel1"                                                                                                                                    ;
 +--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -602,7 +620,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed May 14 01:09:51 2025
+    Info: Processing started: Thu May 22 09:59:55 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off monociclo -c monociclo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -633,10 +651,13 @@ Info (12021): Found 2 design units, including 2 entities, in source file iqueue/
     Info (12023): Found entity 2: fifocircular_tb File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv Line: 58
 Info (12021): Found 1 design units, including 1 entities, in source file monociclo.sv
     Info (12023): Found entity 1: monociclo File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file control/control.sv
+    Info (12023): Found entity 1: control File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/control/control.sv Line: 3
 Info (12127): Elaborating entity "monociclo" for the top level hierarchy
-Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 40
+Warning (10036): Verilog HDL or VHDL warning at monociclo.sv(12): object "opcode_w" assigned a value but never read File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 12
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 53
 Info (12128): Elaborating entity "iqueue" for hierarchy "fetch:fetch_stg|iqueue:IQ_Fetch" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv Line: 65
-Info (12128): Elaborating entity "icache" for hierarchy "icache:icachel1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 52
+Info (12128): Elaborating entity "icache" for hierarchy "icache:icachel1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 65
 Warning (10850): Verilog HDL warning at icache.sv(32): number of words (2) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 32
 Warning (10850): Verilog HDL warning at icache.sv(34): number of words (16) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 34
 Warning (10230): Verilog HDL assignment warning at tag.hex(1): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 1
@@ -657,8 +678,8 @@ Warning (10230): Verilog HDL assignment warning at tag.hex(15): truncated value 
 Warning (10230): Verilog HDL assignment warning at tag.hex(16): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex Line: 16
 Warning (10230): Verilog HDL assignment warning at icache.sv(50): truncated value with size 9 to match size of target (8) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 50
 Critical Warning (10237): Verilog HDL warning at icache.sv(68): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 68
-Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 59
-Info (12128): Elaborating entity "regfile" for hierarchy "regfile:register_read_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 71
+Info (12128): Elaborating entity "control" for hierarchy "control:control_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 80
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:register_read_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv Line: 92
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "icache:icachel1|tag" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 22
     Info (276007): RAM logic "icache:icachel1|memoria" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv Line: 20
@@ -697,11 +718,11 @@ Info (21057): Implemented 120 device resources after synthesis - the final resou
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 86 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
     Info: Peak virtual memory: 4769 megabytes
-    Info: Processing ended: Wed May 14 01:09:59 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Processing ended: Thu May 22 10:00:04 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+
