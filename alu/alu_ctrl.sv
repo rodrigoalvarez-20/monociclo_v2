@@ -34,7 +34,7 @@ module alu_ctrl(
 						3'b100:
 							ex_ope_o = 4'b0011;  //xor
 						3'b101:
-							ex_ope_o = (f7_i == 1'b0) ? 4'b1010 : 4'b1011; // SRL, SRA
+							ex_ope_o = ~(f7_i) ? 4'b1010 : 4'b1011; // SRL, SRA
 						3'b110:
 							ex_ope_o = 4'b0010; //or
 						3'b111:
@@ -44,13 +44,32 @@ module alu_ctrl(
 				 endcase
 				 //negzero_o = 0;
 			end
-			2'b11: // Loads
+			2'b11: // Loads (Tipo I y L)
+				case (f3_i)
+					3'b000: 
+						ex_ope_o = 4'b0000; //Suma
+					3'b010:
+						ex_ope_o = 4'b0111; // SLTI
+					3'b011:
+						ex_ope_o = 4'b0110; // SLTU
+					3'b100:
+						ex_ope_o = 4'b0011; // XOR
+					3'b110:
+						ex_ope_o = 4'b0010; // OR
+					3'b110:
+						ex_ope_o = 4'b0010; // OR
+					3'b111:
+						ex_ope_o = 4'b0001; // AND
+					3'b001:
+						ex_ope_o = 4'b1000; // SLL
+					3'b101:
+						ex_ope_o = ~(f7_i) ? 4'b1010 : 4'b1011; // SRL, SRA
+			2'b00: // Store (Tipo S)
 				ex_ope_o = 4'b0000; //Suma
-			2'b00: // Store
-				ex_ope_o = 4'b0000; //Suma
+			//2'b01: // Tipo B
 				
-				
-				
+			default:
+				ex_ope_o = 4'b1111;
 		endcase
 	end
 endmodule

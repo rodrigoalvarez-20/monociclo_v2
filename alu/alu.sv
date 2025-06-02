@@ -22,14 +22,14 @@ module ALU (
 					res_o = opea_i << opeb_i[5:0];
 				4'b0111: // SLT
 					if ($signed(opea_i) < $signed(opeb_i))
-						res_o = {{(XLEN-1){1'b0}}, 1'b1}; // Cambiar por parametro
+						res_o = {{(XLEN-1){1'b0}}, 1'b1};
 					else
-						res_o = {XLEN{1'b0}}; // Cambiar por parametro
+						res_o = {XLEN{1'b0}};
 				4'b0110: // SLTU
 					if (opea_i < opeb_i)
-						res_o =  {{(XLEN-1){1'b0}}, 1'b1}; // Cambiar por parametro
+						res_o =  {{(XLEN-1){1'b0}}, 1'b1};
 					else
-						res_o = {XLEN{1'b0}}; // Cambiar por parametro
+						res_o = {XLEN{1'b0}};
 				4'b0011: // XOR
 					res_o = opea_i ^ opeb_i;
 				4'b1010: // SRL
