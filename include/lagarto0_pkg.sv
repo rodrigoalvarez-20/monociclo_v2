@@ -23,4 +23,8 @@ localparam		IQUEUE_DEPTH		= 4;
 localparam		IQUEUE_ADDR_SIZE	= $clog2(IQUEUE_DEPTH);
 
 
+// Register File Parameters
+
+localparam		RFADDR_SIZE			= 5;
+
 endpackage 

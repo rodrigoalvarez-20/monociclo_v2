@@ -1,0 +1,49 @@
+import	lagarto0_pkg::*;
+
+
+module alu_ctrl(
+    input 		[1:0] aluop_i,
+    input 		f7_i,  // Asumimos que es el segundo bit más significativo de func7 original
+    input 		[2:0] f3_i,
+    output reg [3:0] ex_ope_o,
+    output reg negzero_o
+);
+
+	always @(*) begin
+		case (aluop_i)
+			2'10: begin // Tipo R
+				 case (f3_i)
+					  3'b000: 
+						begin
+							if (f7_i)
+								begin
+									ex_ope_o = 4'b0100; // Resta
+								end
+							else
+								begin
+									ex_ope_o = 4'b0000; // Suma
+								end
+						end
+						3'b001:
+							exp_ope_o = 4'1000: // sll
+						3'b010:
+							exp_ope_o = 4'0111: // slt
+						3'b011:
+							exp_ope_o = 4'0110: // sltu
+						3'b100:
+							exp_ope_o = 4'0011:  //xor
+						3'b101:
+							exp_ope_o = (func7_i == 1'b0) ? 4'b1010 : 4'b1011; // SRL, SRA
+						3'b110:
+							exp_ope_o = 4'0010: //or
+						3'b111:
+							exp_ope_o = 4'0001; //and
+						default:
+							exp_ope_o = 4'1111; //default
+				 endcase
+
+				 //negzero_o = 0;
+			end	
+		endcase
+	end
+endmodule

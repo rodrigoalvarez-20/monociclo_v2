@@ -4,51 +4,39 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "monitor_o[5]",
+					"name" : "res_o",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[7]",
+					"name" : "c_o",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[8]",
+					"name" : "c_i",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[10]",
+					"name" : "ope_i[2]",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[11]",
+					"name" : "ope_i[1]",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[18]",
+					"name" : "ope_i[0]",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[20]",
+					"name" : "a_i",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[21]",
+					"name" : "b_i",
 					"strict" : false
 				},
 				{
-					"name" : "monitor_o[22]",
-					"strict" : false
-				},
-				{
-					"name" : "monitor_o[30]",
-					"strict" : false
-				},
-				{
-					"name" : "clk_i",
-					"strict" : false
-				},
-				{
-					"name" : "rst_ni",
+					"name" : "invert_i",
 					"strict" : false
 				}
 			]
