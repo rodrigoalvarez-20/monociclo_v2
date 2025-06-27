@@ -1,0 +1,23 @@
+package lagarto0_pkg;
+
+
+module sign_ext(
+	inout 		[ISA_SIZE-1:0]		instr_i,
+	output reg	[XLEN-1:0]			se_dato_o
+);
+	
+	//
+	
+	wire 			[6:0]					op_code_w;
+	
+	assign 								op_code_w = instr_i[6:0];
+	
+	always @(*)
+	begin
+		case (op_code_w)
+			7'b0010011: // Tipo I
+				se_dato_o = {{SE_IMM{inst_i[ISA_SIZE-1]}}, instr_i[ISA_SIZE-1:(ISA_SIZE-1-SE_IMM)]} // 31, 31:20
+		endcase
+	end
+	
+endmodule 

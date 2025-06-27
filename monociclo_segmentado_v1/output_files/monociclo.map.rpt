@@ -1,0 +1,1641 @@
+Analysis & Synthesis report for monociclo
+Fri Jun 27 03:02:57 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Registers Added for RAM Pass-Through Logic
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated
+ 16. Source assignments for regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated
+ 17. Parameter Settings for Inferred Entity Instance: regfile:register_read_stg|altsyncram:GPR_rtl_0
+ 18. Parameter Settings for Inferred Entity Instance: regfile:register_read_stg|altsyncram:GPR_rtl_1
+ 19. altsyncram Parameter Settings by Entity Instance
+ 20. Port Connectivity Checks: "memwb_latch:memwb_latch1"
+ 21. Port Connectivity Checks: "dcache:memaccess_stage"
+ 22. Port Connectivity Checks: "exmem_latch:exmem_latch1"
+ 23. Port Connectivity Checks: "forwarding:fwdstage"
+ 24. Port Connectivity Checks: "ALU:exec_alu_stage|flagdetector:fldetector"
+ 25. Port Connectivity Checks: "ALU:exec_alu_stage"
+ 26. Port Connectivity Checks: "rfex_latch:rfex_latch1"
+ 27. Port Connectivity Checks: "regfile:register_read_stg"
+ 28. Port Connectivity Checks: "IDRF_Latch:idrf_latch1"
+ 29. Port Connectivity Checks: "IFID_Latch:ifid_latch1"
+ 30. Port Connectivity Checks: "icache:icachel1"
+ 31. Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jun 27 03:02:56 2025       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; monociclo                                   ;
+; Top-level Entity Name              ; segmentado                                  ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 29,174                                      ;
+;     Total combinational functions  ; 13,276                                      ;
+;     Dedicated logic registers      ; 16,442                                      ;
+; Total registers                    ; 16442                                       ;
+; Total pins                         ; 66                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,048                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; segmentado         ; monociclo          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
+;     Processor 3            ;   0.4%      ;
+;     Processor 4            ;   0.3%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                          ;
++--------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path           ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                   ; Library ;
++--------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+; icache/icache.sv                           ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv                           ;         ;
+; fetch/fetch.sv                             ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv                             ;         ;
+; include/lagarto0_pkg.sv                    ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv                    ;         ;
+; memory/registerfile.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv                     ;         ;
+; iqueue/iqueue.sv                           ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv                           ;         ;
+; control/control.sv                         ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv                         ;         ;
+; alu/alu_ctrl.sv                            ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv                            ;         ;
+; alu/alu.sv                                 ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv                                 ;         ;
+; alu/extensions/sign_ext.sv                 ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/extensions/sign_ext.sv                 ;         ;
+; extensions/shift_left.sv                   ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/extensions/shift_left.sv                   ;         ;
+; alu/extensions/flagdetector.sv             ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/extensions/flagdetector.sv             ;         ;
+; dcache.sv                                  ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv                                  ;         ;
+; segmentado.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv                              ;         ;
+; ifid_latch.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/ifid_latch.sv                              ;         ;
+; idrf_latch.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/idrf_latch.sv                              ;         ;
+; forwarding.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/forwarding.sv                              ;         ;
+; muxrs.sv                                   ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/muxrs.sv                                   ;         ;
+; rfex_latch.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/rfex_latch.sv                              ;         ;
+; exmem_latch.sv                             ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/exmem_latch.sv                             ;         ;
+; memwb_latch.sv                             ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memwb_latch.sv                             ;         ;
+; hazard.sv                                  ; yes             ; User SystemVerilog HDL File                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/hazard.sv                                  ;         ;
+; icache/tag.hex                             ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex                             ;         ;
+; icache/burbuja2025_inst.hex                ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/burbuja2025_inst.hex                ;         ;
+; altsyncram.tdf                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                          ;         ;
+; stratix_ram_block.inc                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                   ;         ;
+; lpm_mux.inc                                ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                             ;         ;
+; lpm_decode.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                          ;         ;
+; aglobal201.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                          ;         ;
+; a_rdenreg.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                           ;         ;
+; altrom.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                              ;         ;
+; altram.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                              ;         ;
+; altdpram.inc                               ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                            ;         ;
+; db/altsyncram_uni1.tdf                     ; yes             ; Auto-Generated Megafunction                           ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf                     ;         ;
+; db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ;         ;
++--------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 29,174      ;
+;                                             ;             ;
+; Total combinational functions               ; 13276       ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 12145       ;
+;     -- 3 input functions                    ; 919         ;
+;     -- <=2 input functions                  ; 212         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 12947       ;
+;     -- arithmetic mode                      ; 329         ;
+;                                             ;             ;
+; Total registers                             ; 16442       ;
+;     -- Dedicated logic registers            ; 16442       ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 66          ;
+; Total memory bits                           ; 2048        ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clk_i~input ;
+; Maximum fan-out                             ; 16506       ;
+; Total fan-out                               ; 102205      ;
+; Average fan-out                             ; 3.42        ;
++---------------------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                               ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------+--------------+
+; |segmentado                               ; 13276 (148)         ; 16442 (0)                 ; 2048        ; 0            ; 0       ; 0         ; 66   ; 0            ; |segmentado                                                                               ; segmentado      ; work         ;
+;    |ALU:exec_alu_stage|                   ; 1395 (1372)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|ALU:exec_alu_stage                                                            ; ALU             ; work         ;
+;       |flagdetector:fldetector|           ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|ALU:exec_alu_stage|flagdetector:fldetector                                    ; flagdetector    ; work         ;
+;    |IDRF_Latch:idrf_latch1|               ; 0 (0)               ; 36 (36)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|IDRF_Latch:idrf_latch1                                                        ; IDRF_Latch      ; work         ;
+;    |IFID_Latch:ifid_latch1|               ; 0 (0)               ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|IFID_Latch:ifid_latch1                                                        ; IFID_Latch      ; work         ;
+;    |alu_ctrl:exec_ctrl_stage|             ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|alu_ctrl:exec_ctrl_stage                                                      ; alu_ctrl        ; work         ;
+;    |control:control_stage|                ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|control:control_stage                                                         ; control         ; work         ;
+;    |dcache:memaccess_stage|               ; 11160 (11160)       ; 15872 (15872)             ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|dcache:memaccess_stage                                                        ; dcache          ; work         ;
+;    |exmem_latch:exmem_latch1|             ; 0 (0)               ; 104 (104)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|exmem_latch:exmem_latch1                                                      ; exmem_latch     ; work         ;
+;    |fetch:fetch_stg|                      ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|fetch:fetch_stg                                                               ; fetch           ; work         ;
+;    |forwarding:fwdstage|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|forwarding:fwdstage                                                           ; forwarding      ; work         ;
+;    |icache:icachel1|                      ; 115 (115)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|icache:icachel1                                                               ; icache          ; work         ;
+;    |memwb_latch:memwb_latch1|             ; 0 (0)               ; 103 (103)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|memwb_latch:memwb_latch1                                                      ; memwb_latch     ; work         ;
+;    |muxrs:muxrs1|                         ; 66 (66)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|muxrs:muxrs1                                                                  ; muxrs           ; work         ;
+;    |muxrs:muxrs2|                         ; 99 (99)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|muxrs:muxrs2                                                                  ; muxrs           ; work         ;
+;    |regfile:register_read_stg|            ; 140 (140)           ; 152 (152)                 ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|regfile:register_read_stg                                                     ; regfile         ; work         ;
+;       |altsyncram:GPR_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|regfile:register_read_stg|altsyncram:GPR_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_uni1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated ; altsyncram_uni1 ; work         ;
+;       |altsyncram:GPR_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|regfile:register_read_stg|altsyncram:GPR_rtl_1                                ; altsyncram      ; work         ;
+;          |altsyncram_uni1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated ; altsyncram_uni1 ; work         ;
+;    |rfex_latch:rfex_latch1|               ; 2 (2)               ; 108 (108)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|rfex_latch:rfex_latch1                                                        ; rfex_latch      ; work         ;
+;    |sign_ext:sign_ext_stage|              ; 77 (77)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |segmentado|sign_ext:sign_ext_stage                                                       ; sign_ext        ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                   ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
+; Name                                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                        ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
+; regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 64           ; 32           ; 64           ; 2048 ; db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ;
+; regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 64           ; 32           ; 64           ; 2048 ; db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                          ;
++-----------------------------------------------------+-------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                    ;
++-----------------------------------------------------+-------------------------------------------------------+
+; rfex_latch:rfex_latch1|rfex_dators1_o[32..63]       ; Stuck at GND due to stuck port data_in                ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[32..63]       ; Stuck at GND due to stuck port data_in                ;
+; icache:icachel1|valid[20..255]                      ; Stuck at GND due to stuck port clock_enable           ;
+; icache:icachel1|valid[0..19]                        ; Stuck at VCC due to stuck port clock_enable           ;
+; exmem_latch:exmem_latch1|exmem_dators2_o[32..63]    ; Stuck at GND due to stuck port data_in                ;
+; memwb_latch:memwb_latch1|memwb_dato_o[32..63]       ; Stuck at GND due to stuck port data_in                ;
+; IDRF_Latch:idrf_latch1|MEM_Reg_o                    ; Merged with IDRF_Latch:idrf_latch1|MEM_Read_o         ;
+; rfex_latch:rfex_latch1|rfex_MEM_Reg_o               ; Merged with rfex_latch:rfex_latch1|rfex_MEM_Read_o    ;
+; rfex_latch:rfex_latch1|rfex_se_dato_o[20..63]       ; Merged with rfex_latch:rfex_latch1|rfex_se_dato_o[19] ;
+; fetch:fetch_stg|pc_next_o[0]                        ; Stuck at GND due to stuck port data_in                ;
+; regfile:register_read_stg|GPR~33                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[75,76]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~34                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[77,78]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~35                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[79,80]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~36                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[81,82]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~37                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[83,84]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~38                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[85,86]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~39                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[87,88]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~40                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[89,90]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~41                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[91,92]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~42                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[93,94]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~43                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[95,96]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~44                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[97,98]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~45                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[99,100]  ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~46                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[101,102] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~47                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[103,104] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~48                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[105,106] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~49                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[107,108] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~50                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[109,110] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~51                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[111,112] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~52                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[113,114] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~53                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[115,116] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~54                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[117,118] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~55                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[119,120] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~56                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[121,122] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~57                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[123,124] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~58                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[125,126] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~59                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[127,128] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~60                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[129,130] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~61                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[131,132] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~62                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[133,134] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~63                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[135,136] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~64                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[137,138] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~98                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[75,76]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~99                    ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[77,78]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~100                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[79,80]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~101                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[81,82]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~102                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[83,84]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~103                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[85,86]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~104                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[87,88]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~105                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[89,90]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~106                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[91,92]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~107                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[93,94]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~108                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[95,96]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~109                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[97,98]   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~110                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[99,100]  ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~111                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[101,102] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~112                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[103,104] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~113                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[105,106] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~114                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[107,108] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~115                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[109,110] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~116                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[111,112] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~117                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[113,114] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~118                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[115,116] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~119                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[117,118] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~120                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[119,120] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~121                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[121,122] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~122                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[123,124] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~123                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[125,126] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~124                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[127,128] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~125                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[129,130] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~126                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[131,132] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~127                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[133,134] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~128                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[135,136] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~129                   ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[137,138] ; Lost fanout                                           ;
+; regfile:register_read_stg|GPR~66                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~1                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~67                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~2                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~68                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~3                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~69                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~4                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~70                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~5                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~71                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~6                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~72                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~7                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~73                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~8                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~74                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~9                     ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~75                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~10                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~76                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~11                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~77                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~12                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~78                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~13                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~79                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~14                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~80                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~15                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~81                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~16                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~82                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~17                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~83                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~18                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~84                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~19                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~85                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~20                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~86                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~21                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~87                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~22                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~88                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~23                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~89                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~24                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~90                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~25                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~91                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~26                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~92                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~27                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~93                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~28                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~94                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~29                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~95                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~30                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~96                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~31                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~97                    ; Stuck at GND due to stuck port clock_enable           ;
+; regfile:register_read_stg|GPR~32                    ; Stuck at GND due to stuck port clock_enable           ;
+; IFID_Latch:ifid_latch1|inst_o[2]                    ; Merged with IFID_Latch:ifid_latch1|inst_o[3]          ;
+; IFID_Latch:ifid_latch1|inst_o[0]                    ; Merged with IFID_Latch:ifid_latch1|inst_o[1]          ;
+; IDRF_Latch:idrf_latch1|ifid_inst_o[3]               ; Merged with IDRF_Latch:idrf_latch1|ifid_inst_o[2]     ;
+; IDRF_Latch:idrf_latch1|ifid_inst_o[0]               ; Merged with IDRF_Latch:idrf_latch1|ifid_inst_o[1]     ;
+; IFID_Latch:ifid_latch1|inst_o[28,29,31]             ; Merged with IFID_Latch:ifid_latch1|inst_o[27]         ;
+; IDRF_Latch:idrf_latch1|ifid_inst_o[28,29,31]        ; Merged with IDRF_Latch:idrf_latch1|ifid_inst_o[27]    ;
+; fetch:fetch_stg|pc_next_o[41..63]                   ; Lost fanout                                           ;
+; Total Number of Removed Registers = 720             ;                                                       ;
++-----------------------------------------------------+-------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                          ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+; Register name                             ; Reason for Removal        ; Registers Removed due to This Register       ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+; rfex_latch:rfex_latch1|rfex_dators2_o[63] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[63] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[62] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[62] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[61] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[61] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[60] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[60] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[59] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[59] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[58] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[58] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[57] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[57] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[56] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[56] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[55] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[55] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[54] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[54] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[53] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[53] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[52] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[52] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[51] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[51] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[50] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[50] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[49] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[49] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[48] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[48] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[47] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[47] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[46] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[46] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[45] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[45] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[44] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[44] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[43] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[43] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[42] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[42] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[41] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[41] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[40] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[40] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[39] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[39] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[38] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[38] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[37] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[37] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[36] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[36] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[35] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[35] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[34] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[34] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[33] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[33] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; rfex_latch:rfex_latch1|rfex_dators2_o[32] ; Stuck at GND              ; exmem_latch:exmem_latch1|exmem_dators2_o[32] ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[63] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[63]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[62] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[62]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[61] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[61]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[60] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[60]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[59] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[59]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[58] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[58]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[57] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[57]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[56] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[56]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[55] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[55]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[54] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[54]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[53] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[53]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[52] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[52]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[51] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[51]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[50] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[50]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[49] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[49]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[48] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[48]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[47] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[47]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[46] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[46]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[45] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[45]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[44] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[44]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[43] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[43]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[42] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[42]                ;
+;                                           ; due to stuck port data_in ;                                              ;
+; memwb_latch:memwb_latch1|memwb_dato_o[41] ; Stuck at GND              ; fetch:fetch_stg|pc_next_o[41]                ;
+;                                           ; due to stuck port data_in ;                                              ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 16442 ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 39    ;
+; Number of registers using Asynchronous Clear ; 686   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 15838 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------+
+; Inverted Register Statistics                             ;
++------------------------------------------------+---------+
+; Inverted Register                              ; Fan out ;
++------------------------------------------------+---------+
+; regfile:register_read_stg|GPR_rtl_0_bypass[26] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[26] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[24] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[24] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[22] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[22] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[20] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[20] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[18] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[18] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[16] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[16] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[14] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[14] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[12] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[12] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[40] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[36] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[38] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[34] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[56] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[52] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[54] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[50] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[48] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[44] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[46] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[42] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[32] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[28] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[30] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[74] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[72] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[68] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[70] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[66] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[64] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[60] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[62] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[58] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[28] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[32] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[30] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[36] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[34] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[38] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[40] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[42] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[44] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[46] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[48] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[50] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[52] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[54] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[56] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[58] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[60] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[62] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[64] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[66] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[68] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[70] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[72] ; 2       ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[74] ; 2       ;
+; Total number of inverted registers = 64        ;         ;
++------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                            ;
++-------------------------------------------------+-------------------------------------+
+; Register Name                                   ; RAM Name                            ;
++-------------------------------------------------+-------------------------------------+
+; regfile:register_read_stg|GPR_rtl_0_bypass[0]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[1]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[2]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[3]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[4]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[5]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[6]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[7]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[8]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[9]   ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[10]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[11]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[12]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[13]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[14]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[15]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[16]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[17]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[18]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[19]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[20]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[21]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[22]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[23]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[24]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[25]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[26]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[27]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[28]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[29]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[30]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[31]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[32]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[33]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[34]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[35]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[36]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[37]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[38]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[39]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[40]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[41]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[42]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[43]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[44]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[45]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[46]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[47]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[48]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[49]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[50]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[51]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[52]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[53]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[54]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[55]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[56]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[57]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[58]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[59]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[60]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[61]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[62]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[63]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[64]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[65]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[66]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[67]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[68]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[69]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[70]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[71]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[72]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[73]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[74]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[75]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[76]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[77]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[78]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[79]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[80]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[81]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[82]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[83]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[84]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[85]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[86]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[87]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[88]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[89]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[90]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[91]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[92]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[93]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[94]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[95]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[96]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[97]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[98]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[99]  ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[100] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[101] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[102] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[103] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[104] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[105] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[106] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[107] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[108] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[109] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[110] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[111] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[112] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[113] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[114] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[115] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[116] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[117] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[118] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[119] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[120] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[121] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[122] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[123] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[124] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[125] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[126] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[127] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[128] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[129] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[130] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[131] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[132] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[133] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[134] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[135] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[136] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[137] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_0_bypass[138] ; regfile:register_read_stg|GPR_rtl_0 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[0]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[1]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[2]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[3]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[4]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[5]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[6]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[7]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[8]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[9]   ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[10]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[11]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[12]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[13]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[14]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[15]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[16]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[17]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[18]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[19]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[20]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[21]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[22]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[23]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[24]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[25]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[26]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[27]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[28]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[29]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[30]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[31]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[32]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[33]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[34]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[35]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[36]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[37]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[38]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[39]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[40]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[41]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[42]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[43]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[44]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[45]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[46]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[47]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[48]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[49]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[50]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[51]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[52]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[53]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[54]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[55]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[56]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[57]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[58]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[59]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[60]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[61]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[62]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[63]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[64]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[65]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[66]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[67]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[68]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[69]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[70]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[71]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[72]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[73]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[74]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[75]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[76]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[77]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[78]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[79]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[80]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[81]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[82]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[83]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[84]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[85]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[86]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[87]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[88]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[89]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[90]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[91]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[92]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[93]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[94]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[95]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[96]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[97]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[98]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[99]  ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[100] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[101] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[102] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[103] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[104] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[105] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[106] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[107] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[108] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[109] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[110] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[111] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[112] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[113] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[114] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[115] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[116] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[117] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[118] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[119] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[120] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[121] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[122] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[123] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[124] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[125] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[126] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[127] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[128] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[129] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[130] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[131] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[132] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[133] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[134] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[135] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[136] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[137] ; regfile:register_read_stg|GPR_rtl_1 ;
+; regfile:register_read_stg|GPR_rtl_1_bypass[138] ; regfile:register_read_stg|GPR_rtl_1 ;
++-------------------------------------------------+-------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 4:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |segmentado|IFID_Latch:ifid_latch1|inst_o[21]         ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |segmentado|IFID_Latch:ifid_latch1|inst_o[16]         ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |segmentado|rfex_latch:rfex_latch1|rfex_se_dato_o[9]  ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |segmentado|rfex_latch:rfex_latch1|rfex_se_dato_o[0]  ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |segmentado|rfex_latch:rfex_latch1|rfex_se_dato_o[18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |segmentado|muxrs:muxrs2|Mux44                        ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; No         ; |segmentado|sign_ext:sign_ext_stage|Selector18        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |segmentado|ALU:exec_alu_stage|ShiftLeft0             ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |segmentado|sign_ext:sign_ext_stage|Selector18        ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |segmentado|sign_ext:sign_ext_stage|Selector18        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |segmentado|ALU:exec_alu_stage|ShiftLeft0             ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 112 LEs              ; 80 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux21                  ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux37                  ;
+; 19:1               ; 16 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux11                  ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 56 LEs               ; 40 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux51                  ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux59                  ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |segmentado|ALU:exec_alu_stage|Mux61                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: regfile:register_read_stg|altsyncram:GPR_rtl_0  ;
++------------------------------------+--------------------------------------------+----------------+
+; Parameter Name                     ; Value                                      ; Type           ;
++------------------------------------+--------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                          ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                         ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                        ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                         ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                        ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                          ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                  ; Untyped        ;
+; WIDTH_A                            ; 64                                         ; Untyped        ;
+; WIDTHAD_A                          ; 5                                          ; Untyped        ;
+; NUMWORDS_A                         ; 32                                         ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                               ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                       ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                       ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                       ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                       ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                       ; Untyped        ;
+; WIDTH_B                            ; 64                                         ; Untyped        ;
+; WIDTHAD_B                          ; 5                                          ; Untyped        ;
+; NUMWORDS_B                         ; 32                                         ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                     ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                     ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                     ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                     ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                               ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                     ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                       ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                       ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                       ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                       ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                          ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                          ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                       ; Untyped        ;
+; BYTE_SIZE                          ; 8                                          ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
+; INIT_FILE                          ; db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                     ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                          ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                            ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                            ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                      ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                      ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                          ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                               ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_uni1                            ; Untyped        ;
++------------------------------------+--------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: regfile:register_read_stg|altsyncram:GPR_rtl_1  ;
++------------------------------------+--------------------------------------------+----------------+
+; Parameter Name                     ; Value                                      ; Type           ;
++------------------------------------+--------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                          ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                         ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                        ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                         ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                        ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                          ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                  ; Untyped        ;
+; WIDTH_A                            ; 64                                         ; Untyped        ;
+; WIDTHAD_A                          ; 5                                          ; Untyped        ;
+; NUMWORDS_A                         ; 32                                         ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                               ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                       ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                       ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                       ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                       ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                       ; Untyped        ;
+; WIDTH_B                            ; 64                                         ; Untyped        ;
+; WIDTHAD_B                          ; 5                                          ; Untyped        ;
+; NUMWORDS_B                         ; 32                                         ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                     ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                     ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                     ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                     ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                               ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                     ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                       ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                       ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                       ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                       ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                          ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                          ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                       ; Untyped        ;
+; BYTE_SIZE                          ; 8                                          ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
+; INIT_FILE                          ; db/monociclo.ram0_regfile_4c9f4da2.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                     ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                          ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                     ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                            ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                            ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                      ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                      ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                          ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                               ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_uni1                            ; Untyped        ;
++------------------------------------+--------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                           ;
++-------------------------------------------+------------------------------------------------+
+; Name                                      ; Value                                          ;
++-------------------------------------------+------------------------------------------------+
+; Number of entity instances                ; 2                                              ;
+; Entity Instance                           ; regfile:register_read_stg|altsyncram:GPR_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
+;     -- WIDTH_A                            ; 64                                             ;
+;     -- NUMWORDS_A                         ; 32                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 64                                             ;
+;     -- NUMWORDS_B                         ; 32                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ;
+; Entity Instance                           ; regfile:register_read_stg|altsyncram:GPR_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
+;     -- WIDTH_A                            ; 64                                             ;
+;     -- NUMWORDS_A                         ; 32                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 64                                             ;
+;     -- NUMWORDS_B                         ; 32                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ;
++-------------------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "memwb_latch:memwb_latch1"    ;
++------------+--------+----------+------------------------+
+; Port       ; Type   ; Severity ; Details                ;
++------------+--------+----------+------------------------+
+; pc_i       ; Input  ; Info     ; Explicitly unconnected ;
+; memwb_PC_o ; Output ; Info     ; Explicitly unconnected ;
++------------+--------+----------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dcache:memaccess_stage"                                                              ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; hit_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "exmem_latch:exmem_latch1"                                                                                                                  ;
++------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                        ;
++------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; pc_i             ; Input  ; Info     ; Explicitly unconnected                                                                                                         ;
+; exmem_MEM_Read_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                            ;
+; exmem_rs1_o      ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (2 bits) it drives; bit(s) "exmem_rs1_o[4..2]" have no fanouts ;
+; exmem_rs1_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                            ;
+; exmem_rs2_o      ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (2 bits) it drives; bit(s) "exmem_rs2_o[4..2]" have no fanouts ;
+; exmem_rs2_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                            ;
+; exmem_PC_o       ; Output ; Info     ; Explicitly unconnected                                                                                                         ;
++------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "forwarding:fwdstage"                                                                                                                              ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                      ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; memwb_rd_i ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:exec_alu_stage|flagdetector:fldetector"                                                                                                                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; brflag_o ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (64 bits) it drives.  The 63 most-significant bit(s) in the port expression will be connected to GND. ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:exec_alu_stage"                                                                                                                                    ;
++------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                          ;
++------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; ex_ope_i   ; Input  ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "ex_ope_i[4..4]" will be connected to GND. ;
+; zeroflag_o ; Output ; Warning  ; Output or bidir port (64 bits) is wider than the port expression (1 bits) it drives; bit(s) "zeroflag_o[63..1]" have no fanouts                  ;
+; c_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                              ;
++------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rfex_latch:rfex_latch1"                                                                                                                                          ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rf_dators1_i ; Input  ; Warning  ; Input port expression (32 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "rf_dators1_i[63..32]" will be connected to GND. ;
+; rf_dators2_i ; Input  ; Warning  ; Input port expression (32 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "rf_dators2_i[63..32]" will be connected to GND. ;
+; rfex_inst_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                      ;
+; rfex_PC_o    ; Output ; Info     ; Explicitly unconnected                                                                                                                                   ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:register_read_stg"                                                                                                                         ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                       ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; dators1_o ; Output ; Warning  ; Output or bidir port (64 bits) is wider than the port expression (32 bits) it drives; bit(s) "dators1_o[63..32]" have no fanouts              ;
+; rs2_i     ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "rs2_i[5..5]" will be connected to GND. ;
+; dators2_o ; Output ; Warning  ; Output or bidir port (64 bits) is wider than the port expression (32 bits) it drives; bit(s) "dators2_o[63..32]" have no fanouts              ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "IDRF_Latch:idrf_latch1"     ;
++-----------+--------+----------+------------------------+
+; Port      ; Type   ; Severity ; Details                ;
++-----------+--------+----------+------------------------+
+; pc_next_i ; Input  ; Info     ; Explicitly unconnected ;
+; pc_next_o ; Output ; Info     ; Explicitly unconnected ;
++-----------+--------+----------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IFID_Latch:ifid_latch1"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; pc_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "icache:icachel1" ;
++--------+-------+----------+-----------------+
+; Port   ; Type  ; Severity ; Details         ;
++--------+-------+----------+-----------------+
+; we_i   ; Input ; Info     ; Stuck at GND    ;
+; inst_i ; Input ; Info     ; Stuck at GND    ;
+; re_i   ; Input ; Info     ; Stuck at VCC    ;
++--------+-------+----------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fetch:fetch_stg|iqueue:IQ_Fetch"                                                                                                                                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; data_i  ; Input  ; Warning  ; Input port expression (64 bits) is wider than the input port (32 bits) it drives.  The 32 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rd_i    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                        ;
+; empty_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 66                          ;
+; cycloneiii_ff         ; 16442                       ;
+;     CLR               ; 464                         ;
+;     ENA               ; 15616                       ;
+;     ENA CLR           ; 183                         ;
+;     ENA CLR SLD       ; 39                          ;
+;     plain             ; 140                         ;
+; cycloneiii_lcell_comb ; 13276                       ;
+;     arith             ; 329                         ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 291                         ;
+;     normal            ; 12947                       ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 172                         ;
+;         3 data inputs ; 628                         ;
+;         4 data inputs ; 12145                       ;
+; cycloneiii_ram_block  ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 23.00                       ;
+; Average LUT depth     ; 8.99                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:25     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Jun 27 03:02:21 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off monociclo -c monociclo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file icache/icache.sv
+    Info (12023): Found entity 1: icache File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file fetch/fetch.sv
+    Info (12023): Found entity 1: fetch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv Line: 3
+Info (12021): Found 1 design units, including 0 entities, in source file include/lagarto0_pkg.sv
+    Info (12022): Found design unit 1: lagarto0_pkg (SystemVerilog) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decode/decoder.sv
+    Info (12023): Found entity 1: decoder File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/decode/decoder.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file memory/registerfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file iqueue/iqueue.sv
+    Info (12023): Found entity 1: iqueue File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file monociclo.sv
+    Info (12023): Found entity 1: monociclo File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/monociclo.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file control/control.sv
+    Info (12023): Found entity 1: control File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv Line: 3
+Info (12021): Found 0 design units, including 0 entities, in source file alu/extensions/multiplier.sv
+Info (12021): Found 1 design units, including 1 entities, in source file alu/alu_ctrl.sv
+    Info (12023): Found entity 1: alu_ctrl File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file alu/alu.sv
+    Info (12023): Found entity 1: ALU File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file alu/extensions/sign_ext.sv
+    Info (12023): Found entity 1: sign_ext File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/extensions/sign_ext.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file extensions/shift_left.sv
+    Info (12023): Found entity 1: shift_left File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/extensions/shift_left.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file alu/extensions/flagdetector.sv
+    Info (12023): Found entity 1: flagdetector File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/extensions/flagdetector.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file dcache.sv
+    Info (12023): Found entity 1: dcache File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv Line: 3
+Info (12021): Found 2 design units, including 2 entities, in source file segmentado.sv
+    Info (12023): Found entity 1: segmentado File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 3
+    Info (12023): Found entity 2: segmentado_tb File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 451
+Info (12021): Found 1 design units, including 1 entities, in source file ifid_latch.sv
+    Info (12023): Found entity 1: IFID_Latch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/ifid_latch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file idrf_latch.sv
+    Info (12023): Found entity 1: IDRF_Latch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/idrf_latch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file forwarding.sv
+    Info (12023): Found entity 1: forwarding File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/forwarding.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file muxrs.sv
+    Info (12023): Found entity 1: muxrs File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/muxrs.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file rfex_latch.sv
+    Info (12023): Found entity 1: rfex_latch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/rfex_latch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file exmem_latch.sv
+    Info (12023): Found entity 1: exmem_latch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/exmem_latch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file memwb_latch.sv
+    Info (12023): Found entity 1: memwb_latch File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memwb_latch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file hazard.sv
+    Info (12023): Found entity 1: hazard File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/hazard.sv Line: 3
+Info (12127): Elaborating entity "segmentado" for the top level hierarchy
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 168
+Info (12128): Elaborating entity "iqueue" for hierarchy "fetch:fetch_stg|iqueue:IQ_Fetch" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv Line: 56
+Warning (10034): Output port "full_o" at iqueue.sv(11) has no driver File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv Line: 11
+Warning (10034): Output port "empty_o" at iqueue.sv(13) has no driver File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv Line: 13
+Info (12128): Elaborating entity "icache" for hierarchy "icache:icachel1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 181
+Warning (10850): Verilog HDL warning at icache.sv(36): number of words (20) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 36
+Warning (10850): Verilog HDL warning at icache.sv(38): number of words (22) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 38
+Warning (10230): Verilog HDL assignment warning at tag.hex(1): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 1
+Warning (10230): Verilog HDL assignment warning at tag.hex(2): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 2
+Warning (10230): Verilog HDL assignment warning at tag.hex(3): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 3
+Warning (10230): Verilog HDL assignment warning at tag.hex(4): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 4
+Warning (10230): Verilog HDL assignment warning at tag.hex(5): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 5
+Warning (10230): Verilog HDL assignment warning at tag.hex(6): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 6
+Warning (10230): Verilog HDL assignment warning at tag.hex(7): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 7
+Warning (10230): Verilog HDL assignment warning at tag.hex(8): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 8
+Warning (10230): Verilog HDL assignment warning at tag.hex(9): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 9
+Warning (10230): Verilog HDL assignment warning at tag.hex(10): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 10
+Warning (10230): Verilog HDL assignment warning at tag.hex(11): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 11
+Warning (10230): Verilog HDL assignment warning at tag.hex(12): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 12
+Warning (10230): Verilog HDL assignment warning at tag.hex(13): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 13
+Warning (10230): Verilog HDL assignment warning at tag.hex(14): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 14
+Warning (10230): Verilog HDL assignment warning at tag.hex(15): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 15
+Warning (10230): Verilog HDL assignment warning at tag.hex(16): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 16
+Warning (10230): Verilog HDL assignment warning at tag.hex(17): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 17
+Warning (10230): Verilog HDL assignment warning at tag.hex(18): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 18
+Warning (10230): Verilog HDL assignment warning at tag.hex(19): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 19
+Warning (10230): Verilog HDL assignment warning at tag.hex(20): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 20
+Warning (10230): Verilog HDL assignment warning at tag.hex(21): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 21
+Warning (10230): Verilog HDL assignment warning at tag.hex(22): truncated value with size 32 to match size of target (29) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/tag.hex Line: 22
+Warning (10230): Verilog HDL assignment warning at icache.sv(54): truncated value with size 9 to match size of target (8) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 54
+Info (12128): Elaborating entity "IFID_Latch" for hierarchy "IFID_Latch:ifid_latch1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 193
+Info (12128): Elaborating entity "hazard" for hierarchy "hazard:hzd_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 203
+Info (12128): Elaborating entity "control" for hierarchy "control:control_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 220
+Info (12128): Elaborating entity "IDRF_Latch" for hierarchy "IDRF_Latch:idrf_latch1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 250
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:register_read_stg" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 267
+Info (12128): Elaborating entity "sign_ext" for hierarchy "sign_ext:sign_ext_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 273
+Info (12128): Elaborating entity "rfex_latch" for hierarchy "rfex_latch:rfex_latch1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 312
+Info (12128): Elaborating entity "shift_left" for hierarchy "shift_left:shifter_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 319
+Info (12128): Elaborating entity "alu_ctrl" for hierarchy "alu_ctrl:exec_ctrl_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 328
+Info (12128): Elaborating entity "muxrs" for hierarchy "muxrs:muxrs1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 340
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:exec_alu_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 361
+Warning (10240): Verilog HDL Always Construct warning at alu.sv(19): inferring latch(es) for variable "c_o", which holds its previous value in one or more paths through the always construct File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv Line: 19
+Info (10041): Inferred latch for "c_o" at alu.sv(19) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv Line: 19
+Info (12128): Elaborating entity "flagdetector" for hierarchy "ALU:exec_alu_stage|flagdetector:fldetector" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv Line: 57
+Info (12128): Elaborating entity "forwarding" for hierarchy "forwarding:fwdstage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 382
+Info (12128): Elaborating entity "exmem_latch" for hierarchy "exmem_latch:exmem_latch1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 410
+Info (12128): Elaborating entity "dcache" for hierarchy "dcache:memaccess_stage" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 422
+Warning (10230): Verilog HDL assignment warning at dcache.sv(31): truncated value with size 9 to match size of target (8) File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv Line: 31
+Critical Warning (10237): Verilog HDL warning at dcache.sv(49): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv Line: 49
+Info (12128): Elaborating entity "memwb_latch" for hierarchy "memwb_latch:memwb_latch1" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/segmentado.sv Line: 442
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_regfile_4c9f4da2.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (276020): Inferred RAM node "regfile:register_read_stg|GPR_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_regfile_4c9f4da2.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_regfile_4c9f4da2.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (276020): Inferred RAM node "regfile:register_read_stg|GPR_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_regfile_4c9f4da2.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 4 instances of uninferred RAM logic
+    Info (276007): RAM logic "dcache:memaccess_stage|memoria" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv Line: 20
+    Info (276007): RAM logic "dcache:memaccess_stage|tag" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/dcache.sv Line: 22
+    Info (276007): RAM logic "icache:icachel1|tag" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 26
+    Info (276007): RAM logic "icache:icachel1|memoria" is uninferred due to asynchronous read logic File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv Line: 24
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram1_icache_ff572994.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/monociclo.ram0_icache_ff572994.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "regfile:register_read_stg|GPR_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 64
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 64
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/monociclo.ram0_regfile_4c9f4da2.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "regfile:register_read_stg|GPR_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 64
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 64
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/monociclo.ram0_regfile_4c9f4da2.hdl.mif
+Info (12130): Elaborated megafunction instantiation "regfile:register_read_stg|altsyncram:GPR_rtl_0"
+Info (12133): Instantiated megafunction "regfile:register_read_stg|altsyncram:GPR_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "64"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "64"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/monociclo.ram0_regfile_4c9f4da2.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uni1.tdf
+    Info (12023): Found entity 1: altsyncram_uni1 File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 28
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a32" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 999
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a33" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1029
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a34" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1059
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a35" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1089
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a36" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1119
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a37" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1149
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a38" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1179
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a39" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1209
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a40" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1239
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a41" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1269
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a42" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1299
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a43" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1329
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a44" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1359
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a45" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1389
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a46" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1419
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a47" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1449
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a48" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1479
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a49" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1509
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a50" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1539
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a51" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1569
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a52" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1599
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a53" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1629
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a54" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1659
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a55" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1689
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a56" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1719
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a57" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1749
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a58" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1779
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a59" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1809
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a60" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1839
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a61" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1869
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a62" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1899
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_1|altsyncram_uni1:auto_generated|ram_block1a63" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1929
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a32" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 999
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a33" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1029
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a34" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1059
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a35" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1089
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a36" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1119
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a37" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1149
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a38" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1179
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a39" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1209
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a40" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1239
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a41" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1269
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a42" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1299
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a43" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1329
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a44" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1359
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a45" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1389
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a46" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1419
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a47" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1449
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a48" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1479
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a49" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1509
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a50" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1539
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a51" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1569
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a52" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1599
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a53" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1629
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a54" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1659
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a55" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1689
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a56" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1719
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a57" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1749
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a58" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1779
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a59" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1809
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a60" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1839
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a61" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1869
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a62" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1899
+        Warning (14320): Synthesized away node "regfile:register_read_stg|altsyncram:GPR_rtl_0|altsyncram_uni1:auto_generated|ram_block1a63" File: C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/db/altsyncram_uni1.tdf Line: 1929
+Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 215 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/output_files/monociclo.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 29401 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 29271 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 106 warnings
+    Info: Peak virtual memory: 4932 megabytes
+    Info: Processing ended: Fri Jun 27 03:02:57 2025
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:35
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/output_files/monociclo.map.smsg.
+
+

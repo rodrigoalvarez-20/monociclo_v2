@@ -1,0 +1,49 @@
+import	lagarto0_pkg::*;
+
+module memwb_latch(
+	input									clk_i,
+	input									rst_ni,
+	//Entradas de control
+	input									ctrl_regwrite_i,	
+	input									ctrl_memtoreg_i,	
+	//Entradas de datos										
+	input			[XLEN-1:0]			ex_dato_i,		
+	input			[XLEN-1:0]			mem_dato_i,		
+	input			[RFADDR_SIZE-1:0]	rs1_i,				
+	input			[RFADDR_SIZE-1:0]	rs2_i,				
+	input			[RFADDR_SIZE-1:0]	rd_i,						
+	//Salidas de control
+	output reg							ctrl_regwrite_o,	
+	output reg							ctrl_memtoreg_o,	
+	//Salidas de datos								
+	output reg	[XLEN-1:0]			ex_dato_o,			
+	output reg	[XLEN-1:0]			mem_dato_o,			
+	output reg	[RFADDR_SIZE-1:0]	rs1_o,				
+	output reg	[RFADDR_SIZE-1:0]	rs2_o,				
+	output reg	[RFADDR_SIZE-1:0]	rd_o					
+);
+
+	always @(posedge clk_i, negedge rst_ni)
+	begin
+		if (!rst_ni)
+			begin
+				ctrl_regwrite_o	<=	1'b0;	
+				ctrl_memtoreg_o	<=	1'b0;	
+				ex_dato_o			<=	{XLEN{1'b0}};			
+				mem_dato_o			<=	{XLEN{1'b0}};				
+				rs1_o					<=	{RFADDR_SIZE{1'b0}};				
+				rs2_o					<=	{RFADDR_SIZE{1'b0}};				
+				rd_o					<=	{RFADDR_SIZE{1'b0}};	
+			end
+		else
+			begin
+				ctrl_regwrite_o	<=	ctrl_regwrite_i	;
+				ctrl_memtoreg_o	<=	ctrl_memtoreg_i	;
+				ex_dato_o			<=	ex_dato_i			;		
+				mem_dato_o			<=	mem_dato_i			;			
+				rs1_o					<=	rs1_i					;				
+				rs2_o					<=	rs2_i					;				
+				rd_o					<=	rd_i					;
+			end	
+	end
+endmodule

@@ -1,0 +1,418 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/simulation/modelsim
+vALU
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+!i10b 1
+!s100 J>CnYT8mGC378>fg9RemT0
+IzamH3lhc0n9[gH4def^OT1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+R0
+Z3 w1748998539
+Z4 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv
+Z5 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv
+!i122 7
+L0 4 58
+Z6 OV;L;2020.1;71
+31
+Z7 !s108 1750985749.000000
+!s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv|
+Z8 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv|
+!i113 1
+Z9 o-sv -work work
+Z10 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu
+Z11 tCvgOpt 0
+n@a@l@u
+valu_ctrl
+R1
+Z12 DXx4 work 12 lagarto0_pkg 0 22 zXZ8QK5C;<hQ1aAWCl9bX1
+DXx4 work 16 alu_ctrl_sv_unit 0 22 n06i7h<e9SDYo6GCSLlbR3
+Z13 !s110 1750985748
+R2
+r1
+!s85 0
+!i10b 1
+!s100 ?]=J_;;GWD;SnQ[2Jc[8@1
+IM3jfT2iNnNm[lalnddP_Z1
+!s105 alu_ctrl_sv_unit
+S1
+R0
+Z14 w1749605047
+Z15 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv
+Z16 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv
+!i122 1
+L0 4 87
+R6
+31
+Z17 !s108 1750985748.000000
+Z18 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv|
+Z19 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu_ctrl.sv|
+!i113 1
+R9
+R10
+R11
+Xalu_ctrl_sv_unit
+R1
+R12
+R13
+Vn06i7h<e9SDYo6GCSLlbR3
+r1
+!s85 0
+!i10b 1
+!s100 5P]oCXM0Yz1C7K]>GGP@J3
+In06i7h<e9SDYo6GCSLlbR3
+!i103 1
+S1
+R0
+R14
+R15
+R16
+!i122 1
+Z20 L0 1 0
+R6
+31
+R17
+R18
+R19
+!i113 1
+R9
+R10
+R11
+Xalu_sv_unit
+R1
+R12
+Z21 !s110 1750985749
+VKBAW_gM<M<^?UG[8=CIYd2
+r1
+!s85 0
+!i10b 1
+!s100 dBW=FWdFkm;93nI?A;ibB1
+IKBAW_gM<M<^?UG[8=CIYd2
+!i103 1
+S1
+R0
+R3
+R4
+R5
+!i122 7
+R20
+R6
+31
+R7
+Z22 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/alu/alu.sv|
+R8
+!i113 1
+R9
+R10
+R11
+vcontrol
+R1
+R12
+DXx4 work 15 control_sv_unit 0 22 a4aU=HIOn7kla`nE8B2Fj2
+R21
+R2
+r1
+!s85 0
+!i10b 1
+!s100 mb@NQUSF]HDCz^VQZM7Md0
+IcD4IXQ?QFzUeFR@8=RI5>0
+!s105 control_sv_unit
+S1
+R0
+Z23 w1747787613
+Z24 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv
+Z25 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv
+!i122 6
+L0 3 111
+R6
+31
+R7
+Z26 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv|
+Z27 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control/control.sv|
+!i113 1
+R9
+Z28 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/control
+R11
+Xcontrol_sv_unit
+R1
+R12
+R21
+Va4aU=HIOn7kla`nE8B2Fj2
+r1
+!s85 0
+!i10b 1
+!s100 8[kfSC0aml^R;i^=TbCke2
+Ia4aU=HIOn7kla`nE8B2Fj2
+!i103 1
+S1
+R0
+R23
+R24
+R25
+!i122 6
+R20
+R6
+31
+R7
+R26
+R27
+!i113 1
+R9
+R28
+R11
+vfetch
+R1
+R12
+DXx4 work 13 fetch_sv_unit 0 22 MS350^gX<4>S__OZ:MAPE3
+R21
+R2
+r1
+!s85 0
+!i10b 1
+!s100 38E5XX6XSTdo;0^aTADMB2
+IO<TDRo2F5`Ykaf3A1]KcQ2
+!s105 fetch_sv_unit
+S1
+R0
+Z29 w1750985021
+Z30 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv
+Z31 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv
+!i122 3
+L0 3 56
+R6
+31
+R17
+Z32 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv|
+Z33 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch/fetch.sv|
+!i113 1
+R9
+Z34 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/fetch
+R11
+Xfetch_sv_unit
+R1
+R12
+R21
+VMS350^gX<4>S__OZ:MAPE3
+r1
+!s85 0
+!i10b 1
+!s100 cdDQ5@_FS_f;PDNSR1]DH0
+IMS350^gX<4>S__OZ:MAPE3
+!i103 1
+S1
+R0
+R29
+R30
+R31
+!i122 3
+R20
+R6
+31
+R17
+R32
+R33
+!i113 1
+R9
+R34
+R11
+vicache
+R1
+R12
+DXx4 work 14 icache_sv_unit 0 22 [b7n=9S]120P^X0Sod93a3
+R13
+R2
+r1
+!s85 0
+!i10b 1
+!s100 WU_onhBo_nh^aIFNCe8fJ2
+IH6C2HCe@m]>J];]>GWHI_0
+!s105 icache_sv_unit
+S1
+R0
+Z35 w1750805829
+Z36 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv
+Z37 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv
+!i122 2
+L0 3 80
+R6
+31
+R17
+Z38 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv|
+Z39 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache/icache.sv|
+!i113 1
+R9
+Z40 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/icache
+R11
+Xicache_sv_unit
+R1
+R12
+R13
+V[b7n=9S]120P^X0Sod93a3
+r1
+!s85 0
+!i10b 1
+!s100 BYOF?CNI];]VTJQdNPT8[3
+I[b7n=9S]120P^X0Sod93a3
+!i103 1
+S1
+R0
+R35
+R36
+R37
+!i122 2
+R20
+R6
+31
+R17
+R38
+R39
+!i113 1
+R9
+R40
+R11
+viqueue
+R1
+R12
+DXx4 work 14 iqueue_sv_unit 0 22 IH:4h=<lAOGz9h@j]6HdJ0
+R21
+R2
+r1
+!s85 0
+!i10b 1
+!s100 ][E^]6]oQkN0PJJT8A1X91
+IF4BNm_zj6o2d?B4F0j5U_2
+!s105 iqueue_sv_unit
+S1
+R0
+Z41 w1749605475
+Z42 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv
+Z43 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv
+!i122 5
+L0 3 18
+R6
+31
+R7
+Z44 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv|
+Z45 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue/iqueue.sv|
+!i113 1
+R9
+Z46 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/iqueue
+R11
+Xiqueue_sv_unit
+R1
+R12
+R21
+VIH:4h=<lAOGz9h@j]6HdJ0
+r1
+!s85 0
+!i10b 1
+!s100 kHn5H8WSVhE`TSO<7^7[A0
+IIH:4h=<lAOGz9h@j]6HdJ0
+!i103 1
+S1
+R0
+R41
+R42
+R43
+!i122 5
+R20
+R6
+31
+R7
+R44
+R45
+!i113 1
+R9
+R46
+R11
+Xlagarto0_pkg
+R1
+R13
+!i10b 1
+!s100 fg2O6a7B9QMJ=D:Fh]nk>1
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IzXZ8QK5C;<hQ1aAWCl9bX1
+VzXZ8QK5C;<hQ1aAWCl9bX1
+S1
+R0
+w1749164030
+8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv
+FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv
+!i122 0
+R20
+R6
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include/lagarto0_pkg.sv|
+!i113 1
+R9
+!s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/include
+R11
+vregfile
+R1
+R12
+DXx4 work 20 registerfile_sv_unit 0 22 2ZS=366P=ieGI[17_BNT<3
+R21
+R2
+r1
+!s85 0
+!i10b 1
+!s100 jBajAkmAB=4H?g__^nKCG0
+I1VFW@nocU3H=9kKHl4HeX1
+!s105 registerfile_sv_unit
+S1
+R0
+Z47 w1747958664
+Z48 8C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv
+Z49 FC:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv
+!i122 4
+L0 3 37
+R6
+31
+R7
+Z50 !s107 C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv|
+Z51 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory|C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory/registerfile.sv|
+!i113 1
+R9
+Z52 !s92 -sv -work work +incdir+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/memory
+R11
+Xregisterfile_sv_unit
+R1
+R12
+R21
+V2ZS=366P=ieGI[17_BNT<3
+r1
+!s85 0
+!i10b 1
+!s100 ]SNPcQIz4>1X>?oa;e9Ym2
+I2ZS=366P=ieGI[17_BNT<3
+!i103 1
+S1
+R0
+R47
+R48
+R49
+!i122 4
+R20
+R6
+31
+R7
+R50
+R51
+!i113 1
+R9
+R52
+R11

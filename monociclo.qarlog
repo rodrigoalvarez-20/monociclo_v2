@@ -1,0 +1,43 @@
+Quartus Prime Archive log --	C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qarlog
+
+Archive:	C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qar
+Date:		Thu Jun 19 17:16:46 2025
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/alu/alu.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/alu/alu_ctrl.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/alu/extensions/flagdetector.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/alu/extensions/multiplier.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/alu/extensions/sign_ext.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/control/control.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/dcache.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/decode/decoder.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/alu/alu.v
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/alu/fulladder/fulladder.v
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/shift/shift.v
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/execute/superalu.v
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/extensions/shift_left.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/fetch/fetch.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/icache.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/suma.hex
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/icache/tag.hex
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/include/lagarto0_pkg.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/iqueue/iqueue.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/memory/registerfile.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qpf
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qsf
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.sv
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.v
+C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/signextend/signextend.v
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 26 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Thu Jun 19 17:17:06 2025
+Source archive file:	C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qar
+Archive was extracted into	C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/
+		 - successfully.

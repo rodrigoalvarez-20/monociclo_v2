@@ -1,0 +1,12 @@
+import	lagarto0_pkg::*;
+
+
+module shift_left(
+	input		[XLEN-1:0]		dato_i,
+	output	[XLEN-1:0]		dato_o
+);
+
+
+	assign dato_o = dato_i << 1; // Y si se hace dinamico?
+
+endmodule 

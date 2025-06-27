@@ -1,0 +1,41 @@
+import	lagarto0_pkg::*;
+
+module hazard (
+	input									load_i,
+	input		[RFADDR_SIZE-1:0]		exrd_i,
+	input		[RFADDR_SIZE-1:0]		rfrs1_i,
+	input		[RFADDR_SIZE-1:0]		rfrs2_i,
+	output	[1:0]						hzd_o
+);
+
+	always @(*)
+	begin
+		if (load_i)
+			begin
+			
+				if (exrd_i == rfrs1_i)
+					begin
+						hzd_o[0] = 1'b1;
+					end
+				else
+					begin
+						hzd_i[0] = 1'b0;
+		
+				if (exrd_i == rfrs2_i)
+					begin
+						hzd_o[1] = 1'b1;
+					end
+				else
+					begin
+						hzd_i[1] = 1'b0;
+			
+					end
+			end
+		else
+			begin
+				hzd_o <= 2'b0;
+			end
+	end
+
+
+endmodule 

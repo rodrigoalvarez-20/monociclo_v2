@@ -1,0 +1,101 @@
+Restore Archived Project report for monociclo
+Thu Jun 19 17:17:07 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Thu Jun 19 17:17:07 2025 ;
+; Revision Name                   ; monociclo                             ;
+; Top-level Entity Name           ; monociclo                             ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo.qar' into the 'C:/Users/rodri/Documents/development/Monociclo_V1/monociclo/monociclo_segmentado_v1/' directory
+Info: Generated report 'monociclo.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Thu Jun 19 17:17:07 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++-----------------------------------+
+; Files Restored                    ;
++-----------------------------------+
+; File Name                         ;
++-----------------------------------+
+; qar_info.json                     ;
+; alu/alu.sv                        ;
+; alu/alu_ctrl.sv                   ;
+; alu/extensions/flagdetector.sv    ;
+; alu/extensions/multiplier.sv      ;
+; alu/extensions/sign_ext.sv        ;
+; control/control.sv                ;
+; dcache.sv                         ;
+; decode/decoder.sv                 ;
+; execute/alu/alu.v                 ;
+; execute/alu/fulladder/fulladder.v ;
+; execute/shift/shift.v             ;
+; execute/superalu.v                ;
+; extensions/shift_left.sv          ;
+; fetch/fetch.sv                    ;
+; icache/icache.sv                  ;
+; icache/suma.hex                   ;
+; icache/tag.hex                    ;
+; include/lagarto0_pkg.sv           ;
+; iqueue/iqueue.sv                  ;
+; memory/registerfile.sv            ;
+; monociclo.qpf                     ;
+; monociclo.qsf                     ;
+; monociclo.sv                      ;
+; monociclo.v                       ;
+; signextend/signextend.v           ;
+; assignment_defaults.qdf           ;
++-----------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

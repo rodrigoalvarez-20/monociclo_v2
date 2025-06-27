@@ -1,0 +1,10 @@
+
+
+module flagdetector (
+	input							branch_i,
+	input			[2:0]			f3_i,
+	input			[XLEN-1:0]	res_i,
+	output reg					brflag_o
+);
+
+endmodule 

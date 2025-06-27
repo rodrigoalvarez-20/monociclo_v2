@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Jun 27 03:02:56 2025
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : monociclo
+Top-level Entity Name : segmentado
+Family : Cyclone IV E
+Total logic elements : 29,174
+    Total combinational functions : 13,276
+    Dedicated logic registers : 16,442
+Total registers : 16442
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 2,048
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,89 @@
+import	lagarto0_pkg::*;
+
+module rfex_latch(
+	input									clk_i,
+	input									rst_ni,
+	//Entradas de control
+	input									ctrl_regwrite_i,
+	input 								ctrl_memread_i,	
+	input 								ctrl_memwrite_i,	
+	input			[2:0]					ctrl_alu_i,			
+	input			[2:0]					inst_f3_i,			
+	input									inst_f7_i,			
+	input									ctrl_memtoreg_i,	
+	input									ctrl_branch_i,		
+	input									ctrl_jump_i,
+	input									ctrl_alusrc_i,
+	//Entradas de datos										
+	input			[XLEN-1:0]			se_dato_i,			
+	input			[XLEN-1:0]			rf_dators1_i,		
+	input			[XLEN-1:0]			rf_dators2_i,			
+	input			[ADDR_SIZE-1:0]	pc_i,					
+	input			[RFADDR_SIZE-1:0]	rs1_i,				
+	input			[RFADDR_SIZE-1:0]	rs2_i,				
+	input			[RFADDR_SIZE-1:0]	rd_i,						
+	//Salidas de control
+	output reg							ctrl_regwrite_o,	
+	output reg 							ctrl_memread_o,	
+	output reg 							ctrl_memwrite_o,		
+	output reg	[2:0]					ctrl_alu_o,				
+	output reg	[2:0]					inst_f3_o,				
+	output reg							inst_f7_o,			
+	output reg							ctrl_memtoreg_o,		
+	output reg							ctrl_branch_o,			
+	output reg							ctrl_jump_o,
+	output reg							ctrl_alusrc_o,	
+	//Salidas de datos
+	output reg	[XLEN-1:0]			se_dato_o,				
+	output reg	[XLEN-1:0]			rf_dators1_o,			
+	output reg	[XLEN-1:0]			rf_dators2_o,			
+	output reg	[ADDR_SIZE-1:0]	pc_o,						
+	output reg	[RFADDR_SIZE-1:0]	rs1_o,				
+	output reg	[RFADDR_SIZE-1:0]	rs2_o,				
+	output reg	[RFADDR_SIZE-1:0]	rd_o							
+);
+
+	always @(posedge clk_i, negedge rst_ni)
+	begin
+		if (!rst_ni)
+			begin
+				ctrl_regwrite_o 	<=	1'b0;
+				ctrl_memread_o		<=	1'b0;		
+				ctrl_memwrite_o	<=	1'b0;	
+				ctrl_alu_o			<=	3'b0;		
+				inst_f3_o			<=	3'b0;
+				inst_f7_o			<=	1'b0;		
+				ctrl_memtoreg_o	<=	1'b0;
+				ctrl_branch_o		<=	1'b0;
+				ctrl_jump_o			<=	1'b0;
+				ctrl_alusrc_o		<= 1'b0;
+				se_dato_o			<=	{XLEN{1'b0}};		
+				rf_dators1_o		<=	{XLEN{1'b0}};		
+				rf_dators2_o		<=	{XLEN{1'b0}};
+				pc_o					<=	{ADDR_SIZE{1'b0}};				
+				rs1_o					<=	{RFADDR_SIZE{1'b0}};	
+				rs2_o					<=	{RFADDR_SIZE{1'b0}};	
+				rd_o					<=	{RFADDR_SIZE{1'b0}};				
+			end
+		else
+			begin
+				ctrl_regwrite_o 	<=	ctrl_regwrite_i;			
+				ctrl_memread_o		<=	ctrl_memread_i	;			
+				ctrl_memwrite_o	<=	ctrl_memwrite_i;
+				ctrl_alu_o			<=	ctrl_alu_i		;
+				inst_f3_o			<=	inst_f3_i		;
+				inst_f7_o			<=	inst_f7_i		;
+				ctrl_memtoreg_o	<=	ctrl_memtoreg_i;
+				ctrl_branch_o		<=	ctrl_branch_i	;
+				ctrl_jump_o			<=	ctrl_jump_i		;
+				ctrl_alusrc_o		<=	ctrl_alusrc_i	;		
+				se_dato_o			<=	se_dato_i		;
+				rf_dators1_o		<=	rf_dators1_i	;
+				rf_dators2_o		<=	rf_dators2_i	;
+				pc_o					<=	pc_i				;
+				rs1_o					<=	rs1_i				;
+				rs2_o					<=	rs2_i				;
+				rd_o					<=	rd_i				;	
+			end
+	end
+endmodule 

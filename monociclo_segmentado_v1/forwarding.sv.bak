@@ -1,0 +1,34 @@
+import	lagarto0_pkg::*;
+
+
+module forwarding (
+	input 		[RFADDR_SIZE-1:0] exmemrd_i,
+	input 		[RFADDR_SIZE-1:0] rfex_rs1_i,
+	input 		[RFADDR_SIZE-1:0] rfex_rs2_i,
+	output reg 							fwd_rs1_o,
+	output reg 							fwd_rs2_o
+);
+
+	always @(*)
+	begin
+		if (exmemrd_i == rfex_rs1_i)
+			begin
+				fwd_rs1_o = 1'b1;
+			end
+		else
+			begin
+				fwd_rs1_o = 1'b0;
+			end
+		if (exmemrd_i == rfex_rs2_i)
+			begin
+				fwd_rs2_o = 1'b1;
+			end
+		else
+			begin
+				fwd_rs2_o = 1'b0;
+			end
+		
+	end
+
+
+endmodule 
